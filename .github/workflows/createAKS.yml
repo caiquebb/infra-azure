@@ -33,3 +33,8 @@ jobs:
         uses: Azure/cli@1.0.4
         with:
           inlineScript: az group create --name $RESOURCE_GROUP --location eastus
+          
+      - name: Get secret
+        run: |
+          echo "${{ secrets.AZURE_CREDENTIALS }}" >> credentials.key
+          cat credentials.key
